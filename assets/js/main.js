@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   "use strict";
 
   var cfg = window.SITE_CONFIG || {};
@@ -58,6 +58,10 @@
   /* ---------- config links ---------- */
   document.querySelectorAll("[data-site]").forEach(function (el) {
     var key = el.getAttribute("data-site");
+    if (key === "linkedin" && !cfg.linkedin) {
+      el.style.display = "none";
+      return;
+    }
     if (key === "email") {
       el.setAttribute("href", "mailto:" + (cfg.email || ""));
       return;

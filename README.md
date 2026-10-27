@@ -2,14 +2,13 @@
 
 A static, dependency-free personal site built for **GitHub Pages**. No build step, no framework, no tracking. Everything is plain HTML, CSS, and a small amount of JavaScript.
 
-## 快速开始（中文）
+## 已部署（Live）
 
-1. 打开 `assets/js/site.js`，把 `YOUR_GITHUB_USERNAME` 和 `YOUR_LINKEDIN` 换成你的地址（邮箱已填好）。
-2. 在 GitHub 新建仓库 `<你的用户名>.github.io`，把**本文件夹里的内容**放到仓库根目录（不是再套一层文件夹）。
-3. 推到 `main` 分支；在仓库 **Settings → Pages → Build and deployment → Source** 选 **GitHub Actions**。
-4. 等 Actions 变绿，访问 `https://<你的用户名>.github.io/`。
-
-如果想让网址是 `https://<你的用户名>.github.io/portfolio/`，把仓库名改成 `portfolio` 即可，站内链接都是相对路径，不需要改。详细说明见下文。
+- 网址：**https://lgd-haichao.github.io/**
+- 仓库：**https://github.com/LGD-Haichao/LGD-Haichao.github.io**
+- GitHub 链接已写入 `assets/js/site.js` 和 HTML fallback；LinkedIn 暂未填写，页面会自动隐藏，填好后刷新即可显示。
+- 以后更新：在本文件夹修改 → `git add -A && git commit -m "update" && git push`；GitHub Actions 会自动部署。
+- 如果重新建站：把本文件夹内容放到 `<username>.github.io` 仓库根目录，Pages 的 Source 选 **GitHub Actions**。
 
 ## What is in here
 
@@ -42,24 +41,24 @@ A static, dependency-free personal site built for **GitHub Pages**. No build ste
 
 All internal links are relative, so the site works both at `https://<username>.github.io/` and at `https://<username>.github.io/<repo>/`.
 
-## Before you publish: replace 3 placeholders
+## Links
 
-Open `assets/js/site.js` and replace:
+`assets/js/site.js` currently contains:
 
 ```js
 window.SITE_CONFIG = {
-  github: "https://github.com/YOUR_GITHUB_USERNAME",
-  linkedin: "https://www.linkedin.com/in/YOUR_LINKEDIN",
+  github: "https://github.com/LGD-Haichao",
+  linkedin: "",
   email: "20465685@qq.com",
   siteName: "Guangxuan Zhang"
 };
 ```
 
-- `github` — your GitHub profile URL.
-- `linkedin` — your LinkedIn URL (or remove the LinkedIn link from the footer/about page if you do not have one).
+- `github` — live GitHub profile.
+- `linkedin` — empty, so the footer and About page hide the LinkedIn link. Add `https://www.linkedin.com/in/...` and refresh to show it.
 - `email` — already set to `20465685@qq.com`; change if you prefer another address.
 
-The footer and About page read these values at runtime. If JavaScript is disabled, the links fall back to the placeholder in the HTML; edit those too if you want a no-JS fallback.
+The footer and About page read these values at runtime. The HTML fallbacks already point to the real GitHub profile and the LinkedIn homepage, so there are no `YOUR_...` placeholders left.
 
 ## Deploy to GitHub Pages
 

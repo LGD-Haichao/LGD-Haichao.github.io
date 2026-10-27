@@ -1,8 +1,7 @@
-/* Replace the placeholders below before publishing.
-   Everything else on the site links through these values. */
+/* Site links. GitHub is live; add a LinkedIn URL when you have one. */
 window.SITE_CONFIG = {
-  github: "https://github.com/YOUR_GITHUB_USERNAME",
-  linkedin: "https://www.linkedin.com/in/YOUR_LINKEDIN",
+  github: "https://github.com/LGD-Haichao",
+  linkedin: "",
   email: "20465685@qq.com",
   siteName: "Guangxuan Zhang"
 };
