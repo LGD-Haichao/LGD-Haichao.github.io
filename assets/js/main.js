@@ -91,6 +91,38 @@
     items.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---------- copy email ---------- */
+  document.querySelectorAll("[data-copy-email]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var email = btn.getAttribute("data-copy-email");
+      var doneText = btn.getAttribute("data-copied-label") || "已复制";
+      var oldText = btn.textContent;
+
+      function done() {
+        btn.textContent = doneText;
+        setTimeout(function () { btn.textContent = oldText; }, 1800);
+      }
+
+      function fallback() {
+        var ta = document.createElement("textarea");
+        ta.value = email;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand("copy"); done(); } catch (e) {}
+        document.body.removeChild(ta);
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(email).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+
   /* ---------- print ---------- */
   document.querySelectorAll("[data-print]").forEach(function (btn) {
     btn.addEventListener("click", function () { window.print(); });

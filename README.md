@@ -1,32 +1,33 @@
 # Guangxuan Zhang — personal site
 
-A static, dependency-free personal site built for **GitHub Pages**. No build step, no framework, no tracking. Everything is plain HTML, CSS, and a small amount of JavaScript.
+A static, dependency-free personal site built for **GitHub Pages**. No build step, no framework, no tracking. Chinese is the default language; every section has an English counterpart.
 
 ## 已部署（Live）
 
 - 网址：**https://lgd-haichao.github.io/**
 - 仓库：**https://github.com/LGD-Haichao/LGD-Haichao.github.io**
+- 中文主页：**/**；英文主页：**/en.html**；六个项目详情页目前为英文，中文主页每张卡片都有入口。
 - GitHub 链接已写入 `assets/js/site.js` 和 HTML fallback；LinkedIn 暂未填写，页面会自动隐藏，填好后刷新即可显示。
 - 以后更新：在本文件夹修改 → `git add -A && git commit -m "update" && git push`；GitHub Actions 会自动部署。
 - 如果重新建站：把本文件夹内容放到 `<username>.github.io` 仓库根目录，Pages 的 Source 选 **GitHub Actions**。
 
-## What is in here
+## 结构
 
 ```
 .
-├── index.html                  # home
-├── projects/
-│   ├── index.html              # all projects
-│   ├── xinju-liaoshen.html     # field research / consulting
+├── index.html                  # 中文主页（默认）
+├── en.html                     # English home
+├── projects/                   # English project pages
+│   ├── index.html
+│   ├── xinju-liaoshen.html     # field research / policy
 │   ├── ziyun-xinghuo.html      # digital health
 │   ├── cishen-weiju.html       # rural teaching
 │   ├── low-vision-assistant.html
 │   ├── gas-detection.html
 │   └── fire-robot.html
-├── experience.html             # roles, awards, skills
-├── about.html                  # longer bio
-├── resume.html                 # print-friendly resume (Print → Save as PDF)
-├── zh.html                     # Chinese overview
+├── experience.html             # English experience page
+├── about.html                  # English about page
+├── resume.html                 # English resume (Print → Save as PDF)
 ├── 404.html
 ├── assets/
 │   ├── css/style.css
@@ -106,9 +107,9 @@ Open `http://localhost:8080/`. A local server is better than double-clicking `in
 
 - **Home** — `index.html` (hero, selected projects, principles, metrics, snapshot).
 - **Project pages** — `projects/*.html`. Each page has the same structure: hero + meta, prose sections, sidebar, metrics. Copy one page to add a new project, then add a card in `index.html` and `projects/index.html`.
-- **Experience / awards** — `experience.html`.
+- **Experience / awards** — `experience.html` (English).
 - **Resume** — `resume.html`. Use the “Print / Save as PDF” button; the print stylesheet produces an A4 document. A pre-generated copy lives at `assets/Guangxuan_Zhang_Resume.pdf`; regenerate it after editing the resume content.
-- **Chinese overview** — `zh.html`.
+- **中文主页** — `index.html`; **English home** — `en.html`. Project detail pages are in `projects/` (English), linked from the Chinese cards.
 - **Colors / type** — CSS variables at the top of `assets/css/style.css` (`--bg`, `--ink`, `--accent`, `--serif`, `--sans`). Dark mode is automatic and stored in `localStorage`.
 
 ## Privacy and accuracy
@@ -119,7 +120,6 @@ This site is intentionally conservative:
 - No scanned certificates with personal data; project pages cite public articles and the project website instead.
 - Team outcomes are labelled as team outcomes; individual awards say “personally named”.
 - Internal reports and policy briefs are not uploaded. The project pages describe what was done and note that materials are available on request.
-- The site does not use the SAP logo or imply an SAP affiliation. “Targeting SAP STAR 2028” is a statement of intent, not a claim of employment.
 - Names of teammates and advisors appear only where they are already public in project materials. If someone asks to be removed, edit the Credits section of the relevant page.
 
 ## License
